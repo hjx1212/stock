@@ -332,29 +332,29 @@ async def stock_subscription_notify():
 
 
 # TODO 定时提醒暂时就保持写死的这几个，之后考虑变成方便配置或调整
-@sv.scheduled_job('cron', minute=35, hour=9, day_of_week='1-5')
+@sv.scheduled_job('cron', minute=35, hour=9, day_of_week='0-4')
 async def _1():
     await stock_subscription_notify()
 
 
-@sv.scheduled_job('cron', minute=31, hour=11, day_of_week='1-5')
+@sv.scheduled_job('cron', minute=31, hour=11, day_of_week='0-4')
 async def _2():
     await stock_subscription_notify()
 
 
-@sv.scheduled_job('cron', minute=1, hour=15, day_of_week='1-5')
+@sv.scheduled_job('cron', minute=1, hour=15, day_of_week='0-4')
 async def _3():
     await stock_subscription_notify()
 
 
 # TODO 没有订阅美股可以考虑不推送
 # TODO 美国时间夏令冬令支持
-@sv.scheduled_job('cron', minute=0, hour=23, day_of_week='1-5')
+@sv.scheduled_job('cron', minute=0, hour=23, day_of_week='0-4')
 async def _4():
     await stock_subscription_notify()
 
 
-@sv.scheduled_job('cron', minute=1, hour=5, day_of_week='2-6')
+@sv.scheduled_job('cron', minute=1, hour=5, day_of_week='1-5')
 async def _5():
     await stock_subscription_notify()
 
